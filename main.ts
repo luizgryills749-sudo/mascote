@@ -70,6 +70,13 @@ input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     pins.digitalWritePin(DigitalPin.P8, 0)
     pins.digitalWritePin(DigitalPin.P12, 1)
 })
+input.onButtonPressed(Button.AB, function () {
+    basic.showNumber(sonar.ping(
+    DigitalPin.P10,
+    DigitalPin.P9,
+    PingUnit.Centimeters
+    ))
+})
 input.onButtonPressed(Button.B, function () {
     pins.digitalWritePin(DigitalPin.P0, 1)
     pins.digitalWritePin(DigitalPin.P1, 0)
