@@ -18,8 +18,8 @@ input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     if (sonar.ping(
-    DigitalPin.P0,
-    DigitalPin.P0,
+    DigitalPin.P9,
+    DigitalPin.P10,
     PingUnit.Centimeters
     ) < 16) {
         pins.digitalWritePin(DigitalPin.P0, 0)
