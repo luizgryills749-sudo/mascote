@@ -5,21 +5,9 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     pins.digitalWritePin(DigitalPin.P12, 0)
 })
 input.onButtonPressed(Button.A, function () {
-    pins.digitalWritePin(DigitalPin.P0, 1)
-    pins.digitalWritePin(DigitalPin.P1, 0)
-    pins.digitalWritePin(DigitalPin.P8, 1)
-    pins.digitalWritePin(DigitalPin.P12, 0)
-})
-input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
-    pins.digitalWritePin(DigitalPin.P0, 1)
-    pins.digitalWritePin(DigitalPin.P1, 0)
-    pins.digitalWritePin(DigitalPin.P8, 0)
-    pins.digitalWritePin(DigitalPin.P12, 1)
-})
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
     if (sonar.ping(
-    DigitalPin.P9,
     DigitalPin.P10,
+    DigitalPin.P9,
     PingUnit.Centimeters
     ) < 16) {
         pins.digitalWritePin(DigitalPin.P0, 0)
@@ -72,6 +60,15 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P12, 0)
     }
+})
+input.onPinPressed(TouchPin.P2, function () {
+	
+})
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    pins.digitalWritePin(DigitalPin.P0, 1)
+    pins.digitalWritePin(DigitalPin.P1, 0)
+    pins.digitalWritePin(DigitalPin.P8, 0)
+    pins.digitalWritePin(DigitalPin.P12, 1)
 })
 input.onButtonPressed(Button.B, function () {
     pins.digitalWritePin(DigitalPin.P0, 1)
