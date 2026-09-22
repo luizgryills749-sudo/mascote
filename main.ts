@@ -1,11 +1,31 @@
-input.onPinPressed(TouchPin.P0, function () {
-	
-})
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     pins.digitalWritePin(DigitalPin.P0, 0)
     pins.digitalWritePin(DigitalPin.P1, 0)
     pins.digitalWritePin(DigitalPin.P8, 0)
     pins.digitalWritePin(DigitalPin.P12, 0)
+})
+input.onButtonPressed(Button.A, function () {
+    if (pins.digitalReadPin(DigitalPin.P2) == 1 && pins.digitalReadPin(DigitalPin.P3) == 1) {
+        pins.digitalWritePin(DigitalPin.P0, 1)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P12, 0)
+    } else if (pins.digitalReadPin(DigitalPin.P2) == 0 && pins.digitalReadPin(DigitalPin.P3) == 1) {
+        pins.digitalWritePin(DigitalPin.P0, 1)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P12, 1)
+    } else if (pins.digitalReadPin(DigitalPin.P2) == 1 && pins.digitalReadPin(DigitalPin.P3) == 0) {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        pins.digitalWritePin(DigitalPin.P1, 1)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P12, 0)
+    } else {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P12, 0)
+    }
 })
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     pins.digitalWritePin(DigitalPin.P0, 1)
